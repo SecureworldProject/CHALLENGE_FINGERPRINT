@@ -15,7 +15,11 @@
 
 import ctypes
 from ctypes import wintypes
+from dataclasses import dataclass
 
+import lock
+import random
+import os 
 
 SECURITY_MAX_SID_SIZE = 68
 WINBIO_TYPE_FINGERPRINT = 0x00000008
@@ -232,9 +236,20 @@ class FingerPrint:
         self.identity.Value.AccountSid.Size = GetLengthSid(token_user.User.Sid)
 
 
-if __name__ == '__main__':
+def executeChallenge():
     myFP = FingerPrint()
     try:
+        print("Python: Starting executeChallenge()")
+        dataPath=os.environ['SECUREMIRROR_CAPTURES']
+        print("storage folder is :",dataPath)
+
+
+        lock.lockIN("huella_Dactilar")
+
+        lock.lockOUT("huella_Dactilar")
+
+
+
         myFP.open()
         print("Please touch the fingerprint sensor")
         #myFP.identify()
@@ -242,8 +257,24 @@ if __name__ == '__main__':
         
         if myFP.verify():
             print("Hello! Master")
+            cad=1
         else:
             print("Sorry! Man")
+            cad=random.randint(2, 100)
+        print('resultado del Challenge: ', cad)
+        #y generamos el resultado
+        cad="%d"%(cad)
+        key = bytes(cad,'utf-8')
+        key_size = len(key)
+        result = (key, key_size)
+        print("result:", result)
+        
         
     finally:
         myFP.close()
+
+    return result
+
+
+if __name__ == '__main__':
+     executeChallenge()
