@@ -254,13 +254,20 @@ def executeChallenge():
         print("Please touch the fingerprint sensor")
         #myFP.identify()
 
-        
-        if myFP.verify():
-            print("Hello! Master")
-            cad=1
-        else:
-            print("Sorry! Man")
-            cad=random.randint(2, 100)
+        if props_dict['metodo']=='empresarial':
+            if myFP.verify():
+                print("Hello! Master")
+                cad=1
+            else:
+                print("Sorry! Man")
+                cad=random.randint(2, 100)
+        elif props_dict['metodo']=='parental':
+             if myFP.verify():
+                print("Hello! Master")
+                cad=1
+             else:
+                print("Sorry! Man")
+                cad=0
         print('resultado del Challenge: ', cad)
         #y generamos el resultado
         cad="%d"%(cad)
@@ -276,5 +283,19 @@ def executeChallenge():
     return result
 
 
+props_dict = {}
+DEBUG_MODE = True
+
+# funcion init devuelve un 0 que es valido ya que suponemos que el usuario va a tener siempre 8un teclado con el que pueda escribir
+def init(props):
+    global props_dict
+    print("Python: starting challenge init()")
+    #cargamos el json que le pasemos y lo guardamos en la variable global
+    props_dict = props
+    return 0
+
+
 if __name__ == '__main__':
+     midict = {"metodo":'empresarial'}
+     init(midict)
      executeChallenge()
