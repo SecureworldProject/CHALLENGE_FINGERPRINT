@@ -293,7 +293,7 @@ def init(props):
     #cargamos el json que le pasemos y lo guardamos en la variable global
     props_dict = props
     return 0
-
+#incorporacion del main
 
 if __name__ == '__main__':
      midict = {"metodo":'empresarial'}
