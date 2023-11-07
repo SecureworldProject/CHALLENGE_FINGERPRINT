@@ -246,7 +246,7 @@ def executeChallenge():
 
         lock.lockIN("huella_Dactilar")
 
-        lock.lockOUT("huella_Dactilar")
+
 
 
 
@@ -268,6 +268,7 @@ def executeChallenge():
              else:
                 print("Sorry! Man")
                 cad=0
+        lock.lockOUT("huella_Dactilar")    
         print('resultado del Challenge: ', cad)
         #y generamos el resultado
         cad="%d"%(cad)
