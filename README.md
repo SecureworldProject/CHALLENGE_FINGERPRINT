@@ -1,5 +1,5 @@
 # CHALLENGE_FINGERPRINT
-<p>challenge de huella dactilar usando el lector del portatil. Se utiliza la DLL correspondiente a la captura del sensor de huella (winbio.dll) y las librerias correspondientes para leer DLL</p>
+<p>El challenge consiste en crear un sistema de autenticación que utilice la información capturada por el sensor de huellas dactilares para verificar la identidad de un usuario. Para lograrlo, se empleará la "winbio.dll" para interactuar con el hardware del lector de huellas. Esto incluirá la captura de la huella dactilar y la gestión de los datos biométricos.</p>
 <p>este challenge utiliza dos metodos, el primero el modo parental y el empresarial </p>
 <h2>modo parental</h2>
 <p>devuelve 0 si no esta registrada la huella dactilar y un 1 si esta registrada</p>
