@@ -5,3 +5,21 @@
 <p>devuelve 0 si no esta registrada la huella dactilar y un 1 si esta registrada</p>
 <h2>modo emresarial</h2>
 <p>devuelve un numero random del 2 al 100 si no esta registrada la huella dactilar y un 1 si esta registrada</p>
+
+ejemplo de configuracion
+```json
+{
+	"FileName": "challenge_loader_python.dll",
+	"Description": "challenge_fingerprint",
+	"Props": {
+		"module_python": "challenge_fingerprint",
+		"validity_time": 3600,
+		"refresh_time": 3000,
+                             "metodo":"empresarial",
+
+		"url":"C:\\Users\\gomezbot\\source\\repos\\DLL_VALIDATOR-NOKIA\\x64\\Release\\"
+	},
+	"Requirements": "none"
+}
+
+```
