@@ -264,10 +264,10 @@ def executeChallenge():
         elif props_dict['metodo']=='parental':
              if myFP.verify():
                 print("Hello! Master")
-                cad=1
+                cad='\0'
              else:
                 print("Sorry! Man")
-                cad=0
+                cad='\u0001'
         lock.lockOUT("huella_Dactilar")    
         print('resultado del Challenge: ', cad)
         #y generamos el resultado
